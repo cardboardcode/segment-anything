@@ -26,11 +26,6 @@ def show_box(box, ax):
 image = cv2.imread('notebooks/images/truck.jpg')
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-plt.figure(figsize=(10,10))
-plt.imshow(image)
-plt.axis('on')
-plt.show()
-
 import sys
 sys.path.append("..")
 from segment_anything import sam_model_registry, SamPredictor
@@ -89,4 +84,6 @@ for mask in masks:
 for box in input_boxes:
     show_box(box.cpu().numpy(), plt.gca())
 plt.axis('off')
-plt.show()
+# plt.show()
+
+plt.savefig('output.png')
